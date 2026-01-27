@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <section class="container">
+        <header>
+
+            <section class="space_header">
+                <h3>Javascript and Scrollytelling?</h3>
+            </section>
+        </header>
+
+
+        <div class="circle1"></div>
+
+        <section class="hero_container"></section>
+        <h1>Live with your head <br> in the clouds</h1>
+        <section class="nimbus1"><img src="/img/dallas-reedy-HbZ2vXaHtas-unsplash-removebg-preview.png" alt="cloud"></section>
+        <section class="nimbus2"><img src="/img/dallas-reedy-HbZ2vXaHtas-unsplash-removebg-preview%20(2).png" alt="cloud"></section>
+        <section class="nimbus3"><img src="/img/dallas-reedy-HbZ2vXaHtas-unsplash-removebg-preview.png" alt="cloud">
+       
+        </section>
+ <!-- <img src="img/fish.png" id="fish" alt=""> -->
+      <div><img src="img/gota.png" id="gota" alt=""></div>
+<secton class="contenedorcocina">
+        <section class="contenedorComida">
+            <img src="img/salero.png" id="salero" alt="">
+            <img src="img/alimentos1.png" id="huevo" alt="">
+            <img src="img/alimentos2.png" id="romero" alt="">
+            <img src="img/alimentos3.png" id="romero1" alt="">
+            <img src="img/alimentos5.png" id="tomate" alt="">
+            <img src="img/alimentos4.png" id="sarten" alt="">
+        
+  <section class="cocinaLlega" id ="azulejo">    <img src="img/mesa1png.png" id="mesa" alt="">
+      <h2>But remember a fried egg, <br>salt, and the rosemary</h2></section>
+       <div id="noche"><img src="img/diego-ph-tIL1v1jSoaY-unsplash.jpg" alt=""></div>
+        </section>
+        
+        </secton>
+    </section>
+
+    <footer>
+
+    </footer>
+<script>
+    //variables
+    //   var fish = document.getElementById("fish")
+    var salero = document.getElementById("salero")
+      var huevo = document.getElementById("huevo")
+      var romero = document.getElementById("romero")
+      var romero1 = document.getElementById("romero1")
+      var sarten = document.getElementById("sarten")
+     var tomate = document.getElementById("tomate")
+      var azulejo = document.getElementById("azulejo")
+      var noche = document.getElementById("noche")
+      var gota = document.getElementById("gota")
+      window.addEventListener("scroll", mueve)
+    
+    function mueve(){
+        var posicion = window.pageYOffset
+      var sartenTop = -posicion / 7;
+    console.log(posicion);
+    // fish.style.cssText = "left: " + posicion/20 + "%"
+    romero.style.top = -posicion / 2 + "px"; 
+        romero1.style.top = posicion /10 + "px"; 
+    tomate.style.top = -posicion / 1.5 + "px"; 
+    azulejo.style.top = -posicion / 3 + "px";
+    sarten.style.top = -posicion / 16 + "px"; 
+   var huevoY = (sartenTop - 400) + (posicion / 5);
+   var grados = posicion / 8;
+   var perspectiva = Math.max(1000 - posicion / 2, 400); // Perspectiva que disminuye al scrollear
+     
+        var rotacionLimitada = Math.min(grados, 55);
+
+           huevo.style.perspective = perspectiva + "px";
+           huevo.style.transform = "translateY(" + huevoY + "px) rotateX(" + rotacionLimitada + "deg)";
+     salero.style.left = -posicion/10 + "px";
+        
+    noche.style.top = -posicion/10 + "px"
+ gota.style.cssText =  "top: " +posicion*1.1 + "px";
+    }
+   /*          
+       pajaro.style.left = distanciaY/8 + "%"
+   capaA.style.cssText = "right: " + distanciaY/20 + "%"
+          capaE.style.cssText = "width: " + distanciaY * 10 + "px";
+          capaE.style.cssText = "top: " + distanciaY * 2 + "px"; 
+                
+          capaA.style.right = distanciaY/2 + "%"
+          capaC.style.left = distanciaY/8 + "%"
+          pajaro.style.left = distanciaY/8 + "%"
+          capaD.style.top = -distanciaY/10 + "%" */
+   
+    </script>
+</body></html>

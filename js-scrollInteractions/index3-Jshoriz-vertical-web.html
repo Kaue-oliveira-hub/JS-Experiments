@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        /* El contenedor de las páginas horizontales */
+        .horizontal-wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            /* Ocultar barra de scroll */
+            scrollbar-width: none; 
+        }
+        .horizontal-wrapper::-webkit-scrollbar { display: none; }
+
+        .pgs {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        /* Colores para distinguir las secciones */
+        .p1 { background: lightgreen; color: black; }
+        .p2 { background: lightblue; color: black; }
+        .p3 { background: skyblue; color: black; }
+
+        /* Contenido vertical que aparece después */
+        .contenido-vertical {
+            width: 100%;
+            height: 200vh; /* Mucho espacio para hacer scroll down */
+            background: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+         .p4 { background: rgb(130, 138, 72); color: black; }
+        .p5 { background: rgb(173, 230, 204); color: black; }
+        .p6 { background: rgb(135, 235, 188); color: black; }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="horizontal-wrapper" id="horizontalContainer">
+            <div class="pgs p1"><h1>Page 1 (Horizontal)</h1></div>
+            <div class="pgs p2"><h2>Page 2 (Horizontal)</h2></div>
+            <div class="pgs p3"><h2>Page 3 (Final Horizontal)</h2></div>
+        </div>
+
+        <section class="contenido-vertical">
+            <div class="nowVertical" style="height: 100vh;">
+                <h2>Now Vertical</h2>
+           
+          
+            </div>
+             <div><h2>Keep scrolling..</h2>
+            <p style="margin-top: 500px;">keep the scrow down...</p>
+            <p style="margin-top: 500px; text-align: center; padding-bottom: 80px;">The End!</p>
+            </div>
+        </section>
+         <div class="horizontal-wrapper" id="horizontalContainer1">
+            <div class="pgs p4"><h2>Page 4 (Horizontal)</h2></div>
+            <div class="pgs p5"><h2>Page 5 (Horizontal)</h2></div>
+            <div class="pgs p6"><h2>Page 6 (Final Horizontal)</h2></div>
+        </div>
+
+    </main>
+
+    <script>
+        const container = document.getElementById("horizontalContainer");
+
+        container.addEventListener("wheel", (e) => {
+            // Calculamos el límite máximo de scroll horizontal
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+            // CONDICIÓN:
+           
+            if ((e.deltaY > 0 && container.scrollLeft < maxScrollLeft) || 
+                (e.deltaY < 0 && container.scrollLeft > 0)) {
+                
+                // Bloqueamos el scroll vertical de la página
+                e.preventDefault();
+                // Movemos el scroll horizontalmente
+                container.scrollLeft += e.deltaY;
+            }
+            
+            // Si llega al final o al principio, el "preventDefault" no se activa
+            // y el navegador hace el scroll vertical normal hacia arriba o abajo.
+        }, { passive: false });
+
+ const container1 = document.getElementById("horizontalContainer1");
+ setTimeout(() => {
+    container1.scrollLeft = container1.scrollWidth;
+}, 100);
+ container1.addEventListener("wheel", (e) => {
+            // Calculamos el límite máximo de scroll horizontal
+            const maxScrollLeft = container1.scrollWidth - container1.clientWidth;
+
+            // CONDICIÓN:
+            // Si estamos bajando (deltaY > 0) y NO hemos llegado al final horizontal...
+            // O si estamos subiendo (deltaY < 0) y NO hemos llegado al inicio horizontal...
+            if ((e.deltaY > 0 && container1.scrollLeft >  0)  || 
+                (e.deltaY < 0 && container1.scrollLeft < maxScrollLeft)) {
+                
+                // Bloqueamos el scroll vertical de la página
+                e.preventDefault();
+                // Movemos el scroll horizontalmente
+                container1.scrollLeft -= e.deltaY;
+            }
+            
+            // Si llega al final o al principio, el "preventDefault" no se activa
+            // y el navegador hace el scroll vertical normal hacia arriba o abajo.
+        }, { passive: false });
+
+
+    </script>
+</body>
+</html>

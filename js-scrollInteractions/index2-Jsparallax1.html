@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio  scroll window parallax</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            width: 100%;
+            height: 80px;
+            background-color: #690000;
+        }
+        main {
+            width: 100%;
+            height: 4000px;
+        }
+
+        .container {
+            width: 100%;
+            
+            z-index: 0;
+        }
+        
+        .hero{
+            width: 100%;
+            height: 800px;
+            background-image: url(img/Captura%20de%20pantalla%202024-10-15%20a%20las%2019.15.15.png);
+            background-size: cover;
+            background-position: center;
+
+        }
+        .containerBanner{
+            width: 100%;
+            height: 400px;
+            background-color: black;
+            position: relative;
+
+     
+        }
+        
+       .cajaImg1{
+            width: 100%;
+             height: 100%;
+             position: absolute;
+           
+        }
+    .cajaImg1 img{
+            width: 30%;
+          
+            position: relative;
+            left: 100px;
+            filter: drop-shadow(-16px -24px 10px rgba(0, 0, 0, 0.44));
+            z-index: 2;
+            top: 0;
+          transition: 0.5s;
+            
+        }
+       .cajaImg2{
+            width: 100%;
+           height: 100%;
+             position: absolute;
+           
+            overflow: hidden;
+        }
+        .cajaImg2 img{
+            width: 20%;
+            position: relative;
+            margin-top: 150px;
+         
+            opacity: 0.6;
+            left: 950px;
+           
+        }
+      
+.contenedor .texto {
+            width: 60%;
+            position: relative;
+            left: 300px;
+    top: 100px;    
+        }
+
+        .contenedor .texto h3 {
+            color: white;
+            font-size: 32px;
+            font-weight: 400;
+        }
+       
+    </style>
+
+    <header></header>
+    <main>
+        <section class="container">
+
+            <section class="hero"></section>
+
+            <section class="containerBanner">
+              <div class="contenedor">
+              
+                <div class="cajaImg1"> <img src="img/imagen.png" id="idImg1" alt=""></div>
+                
+                <section class="cajaImg2"><img src="img/imagen2.png" id="idImg2" alt=""></section>
+                <div class="texto">
+                <h3> Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Veniam, aliquam! </h3>
+         </div> </div>  
+</section>
+
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+    
+       
+    window.addEventListener("scroll", parallax1);
+
+function parallax1() {
+    var dados = document.getElementById("idImg1");
+    var fone = document.getElementById("idImg2");
+    var posicion = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(posicion);
+
+    // Ajustar la posición de "dados"
+    dados.style.top = (100 - posicion * 0.2) + "px";
+    
+    // Calcular el tamaño de "dados" y limitarlo entre 0.8 y 1.2
+    var scaleValue = 1 - posicion * 0.001; 
+    scaleValue = Math.max(1.4, Math.min(0.8, scaleValue)); // Limitar entre 0.8 y 1.2
+    dados.style.transform = "scale(" + scaleValue + ")";
+
+    // Ajustar la posición de "fone"
+    fone.style.bottom = posicion * 0.4 + "px";
+}
+
+
+    </script>
+</body></html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Progress</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            height: 3000px; 
+            background-color: #141414; 
+            overflow-x: hidden; 
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .cajaCircular1 {
+            /* Tamaño inicial */
+            width: 270px;
+            height: 270px;
+            background-color: whitesmoke;
+            border-radius: 50%;
+            
+            /* Posición inicial a la derecha */
+            margin-left: 80%;
+            transform: translateX(-135px); /* Centra el círculo sobre el eje del 80% */
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            will-change: width, height, margin-left, transform, border-radius;
+        }
+
+        .cajaCircular1 h2 {
+            color: #141414;
+            font-family: sans-serif;
+            transition: opacity 0.3s;
+        }
+
+        /* Ajuste para móviles: si la pantalla es pequeña, el 80% es demasiado */
+        @media (max-width: 600px) {
+            .cajaCircular1 {
+                margin-left: 70%; 
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <h1>This is a simple transition</h1> 
+    <p>( scrow down )</p>   
+        </section>
+       
+        <section class="cajaCircular1" id="caja1">
+            <h2>it is other section</h2>
+        </section>
+    </main>
+
+    <script>
+        var caja1 = document.getElementById("caja1");
+
+        window.addEventListener("scroll", function() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var vh = window.innerHeight;
+            var vw = window.innerWidth;
+
+            // Lógica de detección
+            var distanciaEntrada = (scrollTop + vh) - caja1.offsetTop;
+            var progreso = distanciaEntrada / vh;
+            progreso = Math.min(1, Math.max(0, progreso)); 
+
+            if (progreso > 0) {
+                // 1. ANCHO: De 270px (o el actual) al 100%
+                // Usamos getBoundingClientRect para saber el tamaño inicial real
+                caja1.style.width = `calc(270px + (${progreso} * (100vw - 270px)))`;
+                
+                // 2. ALTO: Crece progresivamente
+                caja1.style.height = (270 + (progreso * 500)) + "px";
+                
+                // 3. POSICIÓN: El margen se reduce de 80% a 0%
+                // El transform también se reduce a 0 para que no haya desvío
+                caja1.style.marginLeft = (80 - (progreso * 80)) + "%";
+                caja1.style.transform = `translateX(${-135 + (progreso * 135)}px)`;
+                
+                // 4. FORMA: De círculo a cuadrado
+                caja1.style.borderRadius = (50 - (progreso * 50)) + "%";
+            } else {
+                // Reset
+                caja1.style.width = "270px";
+                caja1.style.height = "270px";
+                caja1.style.marginLeft = "80%";
+                caja1.style.transform = "translateX(-135px)";
+                caja1.style.borderRadius = "50%";
+            }
+        });
+    </script>
+</body>
+</html>

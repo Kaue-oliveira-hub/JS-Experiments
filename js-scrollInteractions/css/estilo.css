@@ -1,0 +1,311 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:sans-serif;
+       overflow-x: hidden;
+   
+
+}
+.container{
+    height: 300vh;
+    position: relative;
+    background-image: url(/img/parrish-freeman-29W9RscuUMw-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+   
+    
+}
+.space_header{
+    margin: auto;
+    margin-top:1%;
+    padding: 24px 0;
+    width: 90%;
+    height: 8em;
+    background-color: rgba(197, 211, 216, 0.24);
+    border-radius: 2em;
+     border: 2px solid rgba(240, 232, 232, 0.24);
+          -webkit-box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 3px 8px 5px rgba(47, 47, 47, 0.08);
+display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 7
+    
+    
+}
+
+.space_header h3 {
+     color: rgb(240, 248, 255);
+    font-size: 1em;
+ text-align: right;  
+    margin:  40px;
+    padding: 1.5em 0;
+}
+
+h1{
+    font-size: 4em;
+    position: absolute;
+    z-index: 2;
+    left: 2em;
+    top: 7em;
+    color: rgb(240, 248, 255);
+      animation-name: movingText;
+    animation-timeline: view();
+    animation-range: 300px 1000px;
+}
+
+@keyframes movingText{
+    from {
+       translateX(0px);
+         translateY(0px);
+        opacity: 1;
+        scale: 100%;
+    }
+    to {
+        translateX(0px);
+        translateY(400px);
+       opacity: .2;
+        scale: 100%;
+    }
+  }   
+h2{
+    font-size: 4em;
+    position: absolute;
+    z-index: 2;
+    right: 2em;
+    top: -5em;
+    color: rgb(240, 248, 255);
+      
+  transform-origin: top; /* Establece el origen de la transformación en la parte superior */
+    animation: movingText2 3s forwards; /* Llama a la animación */
+}
+
+@keyframes movingText2{
+    0% {
+        transform: rotateX(90deg); /* Comienza doblado hacia atrás */
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        transform: rotateX(0deg); /* Termina en su posición normal */
+        opacity: 1; /* Termina visible */
+    }
+}
+
+.hero_container {
+    margin: auto;
+    width: 90%;
+    height: 90vh;
+    background-color: rgba(197, 211, 216, 0.24);
+    border-radius: 2em;
+    border: 2px solid rgba(240, 232, 232, 0.24);
+   backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+      -webkit-box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 8px 5px rgba(47, 47, 47, 0.08);
+     position: absolute;
+  top: 10em;
+left: 5%;
+    z-index: 2;
+}
+
+.circle1 {
+    width: 13em;
+    height: 13em;
+    border-radius: 100px;
+     border: 2px solid goldenrod;
+    background-color: gold;
+    position: absolute;
+    z-index: 1;
+    top: 15.5em;
+  left: 60em;
+    filter: blur(20px);
+    animation-name: movingSun;
+    animation-timeline: view();
+}
+
+@keyframes movingSun{
+    from {
+         transform: translateY(1000px) rotate(0deg);
+ 
+        opacity: 0;
+          scale: 25%;
+        tr
+    }
+    to{
+        transform: translateY(0px) rotate(270deg);
+     
+         opacity: 1;
+        scale: 100%;
+    }
+}
+
+.nimbus1{
+    position: absolute;
+   z-index: 2;
+    top: 25em;
+    left: 80%;
+     animation-name: movingNimbus;
+    animation-timeline: view();
+    animation-duration: 14.5s;
+    animation-range: entry 8% cover 100%;
+}
+
+.nimbus2{
+     position: absolute;
+   z-index: 2;
+     top: 10em;
+     left: 40%;
+     animation-name: movingNimbus;
+    animation-timeline: view();
+    animation-duration: 8.5s;
+     animation-delay: 50ms;
+     animation-timing-function: ease-in-out;
+     animation-range: entry 90% cover 100%;
+}
+
+.nimbus3{
+    position: absolute;
+   z-index: 1;
+    top: 50em;
+    left: 16%;
+     animation-name: movingNimbus;
+    animation-duration: 10.5s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes movingNimbus{
+    from {
+           transform: translateX(-30em);
+         
+         filter: blur(10px);
+         opacity:0;
+    }
+    to{
+         transform: translateX(0px);
+         
+        opacity:1;
+         filter: blur(0px);
+    }
+    
+}
+
+
+
+
+
+.cocinaLlega {
+    
+    width: 100%;
+    height: 1000px;
+margin: auto;
+    background-image: url("/img/bkgroundazul.png");
+    background-position: center;
+    background-size:cover;
+    position: absolute;
+    z-index: 2;
+    margin-top:  -3em;
+
+   
+}
+
+/* #fish{
+    width: 400px;
+    position: absolute;
+    left: 1em;
+    top: 76em;
+    z-index: 5;
+    
+} */
+
+.contenedorComida{
+    width: 100vw;
+    margin: auto;
+    position: relative;
+    top: 90em;
+    z-index: 3;
+  
+}
+
+
+#salero{
+    position: absolute;
+    margin-left:60em;
+    top: -30em;
+    z-index: 4;
+    width: 250px;
+     filter: drop-shadow(-16px -24px 10px rgba(0, 0, 0, 0.44));
+}
+
+#romero{
+    position: absolute;
+    left: 35em;
+    top: 10em;
+    z-index: 3;
+     filter: drop-shadow(-16px -24px 10px rgba(0, 0, 0, 0.44));
+}
+
+
+#romero1{
+    position: absolute;
+    left: 16em;
+    margin-top:1em;
+    z-index: 3;
+     filter: drop-shadow(-16px 24px 10px rgba(0, 0, 0, 0.44));
+}
+
+#huevo{
+    position: absolute;
+    left: 38em;
+    margin-top:28em;
+    z-index: 5;
+     width: 180px;
+     filter: drop-shadow(-16px 24px 10px rgba(0, 0, 0, 0.44));
+     
+}
+
+#tomate{
+    width: 350px;
+    position: absolute;
+    left: 10em;
+    top:10%;
+    z-index: 7;
+   
+     filter: drop-shadow(-16px 24px 10px rgba(0, 0, 0, 0.44));
+}
+#sarten{
+    width: 350px;
+    position: absolute;
+    left: 36em;
+    margin-top: 10em;
+    z-index: 4;
+     filter: drop-shadow(-16px 24px 10px rgba(0, 0, 0, 0.44));
+}
+
+#mesa{
+   
+    position: absolute;
+    left: 12em;
+    bottom: -.2em; 
+    z-index: 3;
+}
+
+#noche{
+        position:absolute;
+margin-top: 550px;
+   z-index: 6;
+    max-height: 600px;
+}
+
+#gota {
+     position:absolute;
+    width: 100px;
+    margin-left:8em;
+    margin-top: 14em;
+    z-index: 4;
+}
