@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+   <style>
+       *{margin: 0; padding: 0; box-sizing: border-box;}
+       
+       body{
+           width: 100%;
+           margin: auto;
+            
+       }
+       h1{
+           width: 100%;
+           height: 40px;
+           margin: 80px auto;
+           font-size: 2em;
+    text-align: center;
+        color: #5E0B15;
+           
+       }
+       h2{
+        color: #5E0B15;
+       }
+       .containerBox {
+           width: 80%;
+           height: 400px;
+           margin: auto;
+           background-color:  #D9CAB3;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 10px;
+           cursor: pointer;
+        transition: 3s;
+       }
+       
+       .boxModificado {
+           background-color: lightblue;
+           width: 90%;
+           height: 550px;
+           
+       }
+       .tituloModificado {
+           color:white;
+           font-size: 6em;
+       }
+    </style>
+   <header></header>
+   <main>
+       <section class="container">
+           
+           <h1> Ejercício  evento mouseover y mouseout: cambiar texto, color y tamaño</h1>
+           <section class="containerBox"   id="containerOriginal">
+               <h2 id="tituloOriginal" class="changeFont">Através del evento 'mouseover'  se descubre lo que hay más que la tierra.</h2>
+           </section>
+           
+       </section>
+   </main>
+   <footer>
+       
+   </footer>
+   
+    <script>
+    
+    //variables
+        
+        var cambiarColor = document.querySelector ("#containerOriginal");
+        var cambiarTexto = document.querySelector("#tituloOriginal");
+        var cambiarFonts = document.querySelector(".changeFont");
+  
+        var nuevoH2 = "Hay más água que tierra!";
+        var antiguoH2 = "Através de evento 'mouseover'  se descubre lo que hay más que la tierra."
+    //eventos (escutador)
+        
+        cambiarColor.addEventListener("mouseover", aplicarCambio);
+     cambiarColor.addEventListener("mouseout", deshacerCambio);
+        //funciones (en este caso cambia por una clase nueva sobre el id)
+    
+        function aplicarCambio(){
+            cambiarColor.classList.add("boxModificado");
+            cambiarTexto.textContent = nuevoH2;
+            cambiarFonts.classList.add("tituloModificado");
+        }
+    
+        function deshacerCambio(){
+            cambiarColor.classList.remove("boxModificado");
+             cambiarTexto.textContent = antiguoH2;
+            cambiarFonts.classList.remove("tituloModificado");
+        }
+  
+    </script>
+</body>
+</html>
+

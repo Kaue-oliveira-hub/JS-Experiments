@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio 3</title>
+ 
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+
+            margin: auto;
+            background-color: #1f1f1f;
+            overflow: hidden;
+        }
+
+
+
+        .container {
+            width: 100%;
+
+            height: 100vh;
+            position: relative;
+ background-image: url(./img/imagen.jpg);
+            background-position: center;
+            background-size: 3000px;
+            transition: all 2s;
+            z-index: 2;
+                    mask-image: url(./img/bg-ink3.gif);
+            mask-size: 85% ;
+            mask-position: center;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-image: url(./img/bg-ink3.gif);
+    -webkit-mask-size: 85%;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+             }
+
+       
+         
+
+        .containerBox {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+z-index: 2;
+        }
+
+        h1 {
+            width: 100%;
+            height: 16px;
+            margin: 60px auto;
+            font-size: 4em;
+
+            color: #e5e5e5;
+
+
+        }
+
+        h2 {
+            width: 100%;
+
+            margin: 10px auto;
+            font-size: 2em;
+            text-align: center;
+            color: #14213d;
+            color: #FCA311;
+
+        }
+
+        .btn1 {
+            width: 100%;
+            height: 17%;
+            margin: auto;
+         /*   background-color: rgba(240, 255, 255, 0.11); */
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
+        
+        .btn2 {
+            width: 20%;
+            height: 100%;
+            margin: auto;
+          /*  background-color: rgba(240, 255, 255, 0.11);*/
+            position: absolute;
+            left: 0;
+             z-index: 2;
+        }
+        
+        /* nueva clase pa la funcion JS*/
+        .btn2Modificador {
+            background-position: left;
+            background-size: 5000px;
+             z-index: 2;
+            
+        }
+        .btn3 {
+            width: 100%;
+            height: 20%;
+            margin: auto;
+             /* background-color: rgba(24, 200, 200, 0.11); */
+            position: absolute;
+            bottom: 0; 
+            z-index: 2;
+        }
+
+        .btn4 {
+            width: 20%;
+            height: 100%;
+            margin: auto;
+           /*  background-color: rgba(240, 255, 255, 0.11);*/
+            position: absolute;
+            right: 0;
+             z-index: 2;
+        }
+        /* nueva clase pa la funcion JS*/
+        .btn4Modificador {
+            background-position: right;
+            background-size: 5000px;
+            
+        }
+    
+
+    </style>
+    <header></header>
+    <main>
+        
+        <section class="container" id="imgFondo">
+            <div class="btn1" id="accionBtn1"></div>
+            <div class="btn2" id="accionBtn2"></div>
+            <div class="btn3" id="accionBtn3"></div>
+            <div class="btn4" id="accionBtn4"></div>
+             </section>
+           <section class="containerBox">
+                <h1> Where is Wally?</h1>
+                <h2>You find what you look for</h2>
+
+           
+
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script>
+        //variables
+        var modifyBtn1 = document.querySelector("#accionBtn1")
+         var modifyBtn2 = document.querySelector("#accionBtn2")
+          var modifyBtn3 = document.querySelector("#accionBtn3")
+           var modifyBtn4 = document.querySelector("#accionBtn4")
+           
+           var imagenFondo = document.querySelector("#imgFondo")
+        //listener un escuchador que ligue la variable creada arriba a una accion del usuario
+        
+        /////////////////// zoom de arriba btn1///////////////////////////////
+      modifyBtn1.addEventListener("mouseover", zoomBtn1);
+        function zoomBtn1(){ 
+        imagenFondo.style.cssText = "background-position: bottom; background-size: 5000px;"
+        }
+      //escuchador
+        modifyBtn1.addEventListener("mouseout", sinZoom);
+        //function
+        function sinZoom(){
+        imagenFondo.style.cssText = "transform: scale(1)"
+        }
+        
+         /////////////////// zoom left btn2///////////////////////////////
+ //listener es una puente entre variable,  la accion humana y  la funcion 
+        modifyBtn2.addEventListener("mouseover", zoomBtn2);
+        modifyBtn2.addEventListener("mouseout", sinZoomBtn2);
+        //function
+        function zoomBtn2(){
+            imagenFondo.classList.add("btn2Modificador");
+        }
+         function sinZoomBtn2(){
+             imagenFondo.classList.remove("btn2Modificador");
+         }
+        
+    /////////////////// zoom de abajo btn3///////////////////////////////
+        // escuchadores
+        modifyBtn3.addEventListener("mouseover", zoomBtn3);
+        modifyBtn3.addEventListener("mouseout", sinZoom)
+        
+        function zoomBtn3(){
+            imagenFondo.style.cssText = "background-position: top; background-size: 5000px;"
+        }
+        
+        function sinZoom(){
+            imagenFondo.style.cssText = "transform:scale(1)"
+        }
+         /////////////////// zoom de abajo btn4///////////////////////////////
+        modifyBtn4.addEventListener("mouseover", zoomBtn4);
+        modifyBtn4.addEventListener("mouseout", sinZoomBtn4);
+        
+        function zoomBtn4(){
+            imagenFondo.classList.add("btn4Modificador");
+        }
+        
+        function sinZoomBtn4(){
+            imagenFondo.classList.remove("btn4Modificador");
+        }
+    </script>
+</body>
+
+</html>

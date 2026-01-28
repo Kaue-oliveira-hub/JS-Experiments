@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+   <style>
+       *{margin: 0; padding: 0; box-sizing: border-box;}
+       
+       body{
+           width: 100%;
+           height: 100vh;
+           margin: auto;
+            background-color: #1f1f1f;
+       }
+       h1{
+           width: 100%;
+           height: 40px;
+           margin: 80px auto;
+    text-align: center;
+        color: white;
+           
+       }
+       
+       .containerBox {
+           width: 80%;
+           height: 200px;
+           margin: auto;
+           background-color: greenyellow;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 10px;
+           cursor: pointer;
+           transition: 2s;
+       }
+       
+       .boxModificado {
+           background-color: orange;
+       }
+       .tituloModificado {
+           color:white;
+       }
+    </style>
+   <header></header>
+   <main>
+       <section class="container">
+           
+           <h1> Ejercício  evento click: cambiar aparencia</h1>
+           <section class="containerBox" id="boxOriginal">
+               <h2 id="tituloOriginal">Através de evento click se descubre lo que hay abajo del césped.</h2>
+           </section>
+           
+       </section>
+   </main>
+   <footer>
+       
+   </footer>
+   
+    <script>
+    
+    //variables
+        
+        var cambiarColor = document.getElementById("boxOriginal");
+        var textoColor = document.getElementById("tituloOriginal");
+      
+    //eventos (escutador)
+        
+        cambiarColor.addEventListener("click", aplicarCambio);
+    
+        //funciones (en este caso cambia por una clase nueva sobre el id)
+    
+        function aplicarCambio(){
+            cambiarColor.classList.toggle("boxModificado");
+            textoColor.classList.toggle("tituloModificado");
+        }
+    
+  
+    </script>
+</body>
+</html>

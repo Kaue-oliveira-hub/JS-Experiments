@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            background: #f1f1f1;
+        }
+
+        .container  {
+            margin:auto;
+           height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;     
+}
+
+
+        .imgBg {
+            margin: auto;
+
+            width: 450px;
+            height: 550px;
+            border-radius: 8px;
+            background-image: url(img/imagen4.jpg);
+            background-size: 100% 100%;
+           background-position:center;
+           overflow: hidden;
+            cursor: pointer;          
+            position: relative;
+            transition: all 1s;
+            transform-origin: center;           
+             display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .textoAparece {
+            font-family: sans-serif;
+            font-size: 16px;
+            color: white;
+            margin: auto;
+
+            width: 100%;
+            height: 0;
+            border-radius: 0 0 8px 8px;
+            position: absolute;
+            bottom: 0;
+
+            overflow: hidden;
+
+            padding: 12px;
+            padding-bottom: 0;
+            transition: all 1s;
+        }
+
+    </style>
+    <header></header>
+    <main>
+<a href="https://www.oliveirakaue.com" target="_blank">
+        <section class="container">
+            <section class="imgBg" id="imgId">
+                <h5 class="textoAparece" id="textoId">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt qui natus earum doloremque beatae officiis, quo, asperiores alias quaerat consequatur voluptatibus. Tempora quod nulla asperiores, ex minus.
+                </h5>
+            </section>
+        </section>
+        </a>
+    </main>
+
+    <footer></footer>
+    <script>
+        //variable 
+
+        var adaptaimg = document.querySelector("#imgId");
+        var showTexto = document.querySelector("#textoId");
+
+        //escuchador 
+        adaptaimg.addEventListener("mouseover", cresceImg);
+        adaptaimg.addEventListener("mouseout", normalImg);
+
+        //funcion
+        function cresceImg() {
+            
+            adaptaimg.style.backgroundSize = "150% 150%";
+            textoId.style.cssText = "bottom: 0;background-color: rgba(0,0,0,0.5); height:108px;"
+        }
+
+        function normalImg() {
+            
+            adaptaimg.style.backgroundSize = "100% 100%";  
+            textoId.style.cssText = "bottom: 0; overflow: hidden; margin:   height: 0;" 
+        }
+    </script>
+</body>
+
+</html>
